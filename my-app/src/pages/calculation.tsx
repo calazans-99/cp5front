@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Importe o componente Image
+import Image from 'next/image';
 
 export default function Calculation() {
   const [result, setResult] = useState<number | null>(null);
 
   const calculate = () => {
-    const value = Math.random() * 100; // Simulando um cálculo fictício
+    const value = Math.random() * 100;
     setResult(value);
   };
 
@@ -28,7 +28,7 @@ export default function Calculation() {
 
         <button 
           onClick={calculate} 
-          className="bg-blue-500 text-white p-2 rounded transition-[0.25s] hover:bg-[#005c99] mb-8"
+          className="bg-blue-500 text-white p-2 rounded transition-[0.25s] hover:bg-[#005c99]"
         >
           Realizar Cálculo
         </button>
@@ -39,7 +39,7 @@ export default function Calculation() {
           </div>
         )}
         
-        <p className="mb-8">
+        <p className="mt-8 mb-8">
           Os cálculos e previsões de Immanuel Velikovsky, especialmente em "Worlds in Collision", são centrais para as controvérsias que cercam seu trabalho. Velikovsky usou um método que mesclava observações astronômicas, interpretações mitológicas e relatos históricos para fundamentar suas alegações de que eventos cataclísmicos ocorreram de maneira muito mais recente do que a ciência aceita.
         </p>
         <p className="mb-8">
