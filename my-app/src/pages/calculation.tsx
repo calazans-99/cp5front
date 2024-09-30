@@ -27,7 +27,7 @@ export default function Calculation() {
 
         <button 
           onClick={calculate} 
-          className="bg-blue-500 text-white p-2 rounded"
+          className="bg-blue-500 text-white p-2 rounded transition-[0.25s] hover:bg-[#005c99]"
         >
           Realizar Cálculo
         </button>
