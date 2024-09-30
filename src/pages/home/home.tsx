@@ -27,7 +27,7 @@ export default function Home() {
                 </Link>
               </li>
               <li>
-                <Link href="/imagensNasa" className="text-white hover:text-gray-300">
+                <Link href="/imagens" className="text-white hover:text-gray-300">
                   Imagens NASA
                 </Link>
               </li>
