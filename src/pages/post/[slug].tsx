@@ -20,7 +20,7 @@ export default function PostPage() {
 
     async function fetchPost() {
       try {
-        const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=uak2hWXk9EoxwYJxtUnDZYBfGq1lyXJE2sOXq9lC=${slug}`);
+        const res = await fetch(`https://api.nasa.gov/planetary/apod?api_key=uak2hWXk9EoxwYJxtUnDZYBfGq1lyXJE2sOXq9lC&date=${slug}`);
         const data = await res.json();
         setPost(data); // Atualiza o estado com os dados da imagem
       } catch (error) {

@@ -6,20 +6,27 @@ interface NasaImage {
   title: string;
   url: string;
   explanation: string;
-  date: string;
+  date: string; // Certifique-se de que o campo "date" existe nos dados retornados pela API
 }
 
 export default function Home() {
-  const [images, setImages] = useState<NasaImage[]>([]);
+  const [images, setImages] = useState<NasaImage[]>([]); // Tipagem correta do estado
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=uak2hWXk9EoxwYJxtUnDZYBfGq1lyXJE2sOXq9lC');
+        // Usando a chave de API fornecida
+        const res = await fetch('https://api.nasa.gov/planetary/apod?api_key=uak2hWXk9EoxwYJxtUnDZYBfGq1lyXJE2sOXq9lC&count=10');
         const data = await res.json();
-        setImages(data); // Atualizando o estado com a lista de imagens
+
+        // Verificando se os dados são um array
+        if (Array.isArray(data)) {
+          setImages(data); // Atualizando o estado com os dados retornados da API
+        } else {
+          setError('Dados inválidos retornados da API');
+        }
       } catch (error) {
         setError('Falha ao carregar dados da NASA');
         console.error('Erro ao buscar dados da NASA:', error);
@@ -39,6 +46,11 @@ export default function Home() {
     return <p>{error}</p>;
   }
 
+  // Verificação para garantir que o `images` não seja indefinido ou vazio
+  if (!images || images.length === 0) {
+    return <p>Nenhuma imagem disponível</p>;
+  }
+
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-8">Imagens da NASA</h1>
@@ -46,10 +58,8 @@ export default function Home() {
         {images.map((image, index) => (
           <div key={index} className="text-center">
             <Link href={`/post/${image.date}`}>
-              <a>
-                <h2 className="text-xl font-semibold mb-2">{image.title}</h2>
-                <img src={image.url} alt={image.title} className="w-full h-auto" />
-              </a>
+              <h2 className="text-xl font-semibold mb-2">{image.title}</h2>
+              <img src={image.url} alt={image.title} className="w-full h-auto" />
             </Link>
           </div>
         ))}
