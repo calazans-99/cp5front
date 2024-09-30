@@ -12,10 +12,10 @@ export default function Calculation() {
   return (
     <div>
       <header className="flex justify-end space-x-4 p-4 bg-gray-800 text-white">
-        <Link href="/" className="hover:underline">Página Inicial</Link>
-        <Link href="/about" className="hover:underline">Sobre</Link>
-        <Link href="/calculation" className="hover:underline">Cálculo</Link>
-        <Link href="/nasa-images" className="hover:underline">Imagens da NASA</Link>
+        <Link href="/" className="transition-[0.25s] hover:text-[#0099ff]">Página Inicial</Link>
+        <Link href="/about" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
+        <Link href="/calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
+        <Link href="/nasa-images" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
       </header>
 
       <div className="p-8">
