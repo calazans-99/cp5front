@@ -1,3 +1,4 @@
+"use client"
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,9 +15,9 @@ export default function Calculation() {
     <div>
       <header className="flex justify-end space-x-4 p-4 bg-gray-800 text-white">
         <Link href="/" className="transition-[0.25s] hover:text-[#0099ff]">Página Inicial</Link>
-        <Link href="/about" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
-        <Link href="/calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
-        <Link href="/nasa-images" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
+        <Link href="/About" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
+        <Link href="/Calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
+        <Link href="/NasaImages" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
       </header>
 
       <div className="p-8">
