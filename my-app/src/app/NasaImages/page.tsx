@@ -1,3 +1,4 @@
+"use client"
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -16,8 +17,14 @@ export default function NasaImages() {
   useEffect(() => {
     async function fetchImages() {
       try {
-        const res = await fetch('/api/route'); // Chama o endpoint local que puxa imagens da NASA
-        const data = await res.json();
+        const res = await fetch('/api/nasa');
+        
+        // Verifica se a resposta foi bem-sucedida
+        if (!res.ok) {
+          throw new Error('Erro na resposta da API');
+        }
+
+        const data: NasaImage[] = await res.json();
         setImages(data);
       } catch (error) {
         setError('Erro ao carregar imagens');
@@ -29,16 +36,16 @@ export default function NasaImages() {
     fetchImages();
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="text-center">Carregando...</p>;
+  if (error) return <p className="text-center text-red-500">{error}</p>;
 
   return (
     <div>
       <header className="flex justify-end space-x-4 p-4 bg-gray-800 text-white">
         <Link href="/" className="transition-[0.25s] hover:text-[#0099ff]">Página Inicial</Link>
-        <Link href="/about" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
-        <Link href="/calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
-        <Link href="/nasa-images" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
+        <Link href="/About" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
+        <Link href="/Calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
+        <Link href="/NasaImages" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
       </header>
 
       <div className="p-8">
@@ -47,10 +54,8 @@ export default function NasaImages() {
           {images.map((image, index) => (
             <div key={index} className="text-center">
               <h2 className="text-xl font-semibold mb-2">{image.title}</h2>
-              <Link href={`/nasa-images/${image.date}`} legacyBehavior>
-                <a className="text-blue-500 hover:underline">
-                  <img src={image.url} alt={image.title} className="w-full h-auto" />
-                </a>
+              <Link href={`/nasa-images/${image.date}`}>
+                <img src={image.url} alt={image.title} className="w-full h-auto mb-2" />
               </Link>
             </div>
           ))}

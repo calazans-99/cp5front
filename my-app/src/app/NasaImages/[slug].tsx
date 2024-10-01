@@ -9,7 +9,7 @@ interface NasaImage {
 
 export default function NasaImagePage() {
   const router = useRouter();
-  const { slug } = router.query; // 'slug' é a data da imagem
+  const { slug } = router.query;
 
   const [image, setImage] = useState<NasaImage | null>(null);
   const [loading, setLoading] = useState(true);

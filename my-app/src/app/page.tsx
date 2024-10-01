@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,9 +7,9 @@ export default function Home() {
     <div>
       <header className="flex justify-end space-x-4 p-4 bg-gray-800 text-white">
         <Link href="/" className="transition-[0.25s] hover:text-[#0099ff]">Página Inicial</Link>
-        <Link href="/about" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
-        <Link href="/calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
-        <Link href="/nasa-images" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
+        <Link href="/About" className="transition-[0.25s] hover:text-[#0099ff]">Sobre</Link>
+        <Link href="/Calculation" className="transition-[0.25s] hover:text-[#0099ff]">Cálculo</Link>
+        <Link href="/NasaImages" className="transition-[0.25s] hover:text-[#0099ff]">Imagens da NASA</Link>
       </header>
 
       <div className="p-8">
@@ -27,7 +28,7 @@ export default function Home() {
           Além de "Worlds in Collision", Velikovsky continuou a desenvolver suas ideias em obras subsequentes, mas nenhuma alcançou a mesma notoriedade. O impacto de "Worlds in Collision" é inegável, pois provocou discussões sobre a forma como entendemos a história da Terra e nosso lugar no cosmos, levantando questões que ainda ressoam em debates contemporâneos sobre ciência e mito.
         </p>
         <div className="mt-8">
-          <Link href="/about" className="text-blue-500 hover:underline">
+          <Link href="/About" className="text-blue-500 hover:underline">
             Saiba mais sobre Velikovsky
           </Link>
         </div>
